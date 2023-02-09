@@ -1,0 +1,12 @@
+[package]
+name = "nds-sys"
+version = "0.1.0"
+edition = "2021"
+authors = ["SeleDreams"]
+config = "../.cargo/config.toml"
+target = "../armv5te-nintendo-ds.json"
+links = "nds9"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[dependencies]
+libc = {version = "0.2.121", default-features = false}

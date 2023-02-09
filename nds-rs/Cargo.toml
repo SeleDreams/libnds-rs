@@ -1,0 +1,29 @@
+[package]
+name = "nds-rs"
+version = "0.1.0"
+edition = "2021"
+config = "../.cargo/config.toml"
+
+[lib]
+name = "nds_rs"
+crate-type = ["rlib"]
+
+[dependencies]
+nds-sys = {path="../nds-sys"}
+libc = {version = "0.2.121", default-features = false}
+libc_alloc = "1.0.4"
+libc-print = "0.1.20"
+
+[build-dependencies]
+toml = "0.7.2"
+
+[features]
+default = ["romfs", "big-stack"]
+romfs = []
+big-stack = []
+
+[package.metadata.cargo-nds]
+romfs_dir = "test/romfs"
+
+[[bin]]
+name = "hello_world"

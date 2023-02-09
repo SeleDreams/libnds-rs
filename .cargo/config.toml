@@ -1,0 +1,9 @@
+[profile.release]
+panic="abort"
+
+[profile.dev]
+panic="abort"
+
+[build]
+target = "armv5te-nintendo-ds.json"
+build-std = ["core","alloc"]
