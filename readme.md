@@ -7,3 +7,5 @@ Thus, following the same logic. nds-sys represents the raw bindgen generated low
 
 At the moment, this project is heavily WIP and only the nds-sys crate is usable.
 
+You will need to use cargo-nds to build nds roms out of this repository
+you can find cargo-nds here : https://github.com/SeleDreams/cargo-nds
