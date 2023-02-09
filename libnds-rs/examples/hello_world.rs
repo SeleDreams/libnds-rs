@@ -18,19 +18,19 @@ fn handle_panic(info: &core::panic::PanicInfo) -> ! {
 
 #[no_mangle]
 pub extern "C" fn main(_argc: isize, _argv: *const *const u8) -> isize {
-    let touch_xy: *mut nds_sys::touchPosition = null_mut();
-    let mut touch_xy_safe: nds_sys::touchPosition;
+    let touch_xy: *mut libnds_sys::touchPosition = null_mut();
+    let mut touch_xy_safe: libnds_sys::touchPosition;
     unsafe {
-        nds_sys::consoleDemoInit();
+        libnds_sys::consoleDemoInit();
         libc_println!("Hello world!");
         loop {
-            nds_sys::swiWaitForVBlank();
-            nds_sys::scanKeys();
-            let keys = nds_sys::keysDown();
-            if keys & nds_sys::KEY_START == 1 {
+            libnds_sys::swiWaitForVBlank();
+            libnds_sys::scanKeys();
+            let keys = libnds_sys::keysDown();
+            if keys & libnds_sys::KEY_START == 1 {
                 break;
             }
-            nds_sys::touchRead(touch_xy);
+            libnds_sys::touchRead(touch_xy);
             touch_xy_safe = *touch_xy;
             //libc_println!("Touch at : X={} Y={}", touch_xy_safe.px, touch_xy_safe.py);
         }

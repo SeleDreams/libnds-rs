@@ -1,4 +1,4 @@
-# NDS-RS
+# libnds-rs
 A rust wrapper for the libnds library present in devkitpro
 
 This DS port was based on ctru-rs for the basic build scripts and project architecture https://github.com/rust3ds/ctru-rs

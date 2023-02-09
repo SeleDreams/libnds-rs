@@ -1,5 +1,5 @@
 [package]
-name = "nds-sys"
+name = "libnds-sys"
 version = "0.1.0"
 edition = "2021"
 authors = ["SeleDreams"]
