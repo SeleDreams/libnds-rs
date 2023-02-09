@@ -22,7 +22,7 @@ pub extern "C" fn main(_argc: isize, _argv: *const *const u8) -> isize {
     let mut touch_xy_safe: libnds_sys::touchPosition;
     unsafe {
         libnds_sys::consoleDemoInit();
-        libc_println!("Hello world!");
+        libc_println!("Hello world from Rust !");
         loop {
             libnds_sys::swiWaitForVBlank();
             libnds_sys::scanKeys();
