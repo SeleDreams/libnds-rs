@@ -1,30 +1,31 @@
 {
-    "abi": "eabi",
-    "arch": "arm",
-    "data-layout": "e-m:e-p:32:32-Fi8-i64:64-v128:64:128-a:0:32-n32-S64",
-    "env" : "newlib",
-    "exe-suffix" : ".elf",
-    "is-builtin": false,
-    "linker": "arm-none-eabi-gcc",
-    "llvm-target": "armv5te-none-eabi",
-    "relocation-model": "static",
-    "target-pointer-width": "32",
-    "target-family": [
-        "unix"
-      ],
-    "no-default-libraries": false,
-    "pre-link-args": {
-        "gcc": [
-          "-specs=ds_arm9.specs",
-          "-g",
-          "-mthumb",
-          "-mthumb-interwork",
-          "-mtune=arm946e-s",
-          "-fomit-frame-pointer",
-          "-ffast-math"
-        ]
-      },
-    "vendor" : "nintendo"
+  "abi": "eabi",
+  "arch": "arm",
+  "data-layout": "e-m:e-p:32:32-Fi8-i64:64-v128:64:128-a:0:32-n32-S64",
+  "env" : "newlib",
+  "exe-suffix" : ".elf",
+  "is-builtin": false,
+  "linker": "arm-none-eabi-gcc",
+  "llvm-target": "armv5te-none-gnu",
+  "relocation-model": "static",
+  "target-pointer-width": "32",
+  "max-atomic-width": 32,
+  "target-family": [
+      "unix"
+    ],
+  "no-default-libraries": false,
+  "panic-strategy" : "abort",
+  "pre-link-args": {
+      "gcc": [
+        "-specs=ds_arm9.specs",
+        "-g",
+        "-mthumb",
+        "-mthumb-interwork",
+        "-mtune=arm946e-s",
+        "-fomit-frame-pointer",
+        "-ffast-math"
+      ]
+    },
+  "vendor" : "nintendo"
 }
-  
-  
+

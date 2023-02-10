@@ -7,6 +7,7 @@ extern crate alloc;
 extern crate libc;
 mod bindings;
 pub use bindings::*;
+mod atomics;
 pub unsafe fn errno() -> s32 {
     (*__getreent())._errno
 }

@@ -1,38 +1,40 @@
 #![no_std]
 #![no_main]
-#![feature(lang_items)]
-use core::format_args;
-use core::ptr::null_mut;
-use libc_print::*;
-extern crate alloc;
-extern crate libc;
+#![feature(core_intrinsics)]
+use core::sync::atomic::{AtomicI32, Ordering};
 use libc_alloc::LibcAlloc;
+use libc_print::*;
+use libnds_sys::irqSet;
 
 #[global_allocator]
 static ALLOCATOR: LibcAlloc = LibcAlloc;
 
 #[panic_handler]
-fn handle_panic(info: &core::panic::PanicInfo) -> ! {
+fn handle_panic(_info: &core::panic::PanicInfo) -> ! {
     loop {}
+}
+
+static mut FRAME: AtomicI32 = AtomicI32::new(0);
+
+unsafe extern "C" fn vblank() {
+    FRAME.store(FRAME.load(Ordering::Acquire) + 1, Ordering::Release);
 }
 
 #[no_mangle]
 pub extern "C" fn main(_argc: isize, _argv: *const *const u8) -> isize {
-    let touch_xy: *mut libnds_sys::touchPosition = null_mut();
-    let mut touch_xy_safe: libnds_sys::touchPosition;
     unsafe {
-        libnds_sys::consoleDemoInit();
+        FRAME.store(0, Ordering::Release);
         libc_println!("Hello world from Rust !");
+        irqSet(libnds_sys::IRQ_VBLANK.try_into().unwrap(), Some(vblank));
+        libnds_sys::consoleDemoInit();
         loop {
             libnds_sys::swiWaitForVBlank();
             libnds_sys::scanKeys();
             let keys = libnds_sys::keysDown();
-            if keys & libnds_sys::KEY_START == 1 {
+            if (keys & libnds_sys::KEY_START) == 1 {
                 break;
             }
-            libnds_sys::touchRead(touch_xy);
-            touch_xy_safe = *touch_xy;
-            //libc_println!("Touch at : X={} Y={}", touch_xy_safe.px, touch_xy_safe.py);
+            libc_println!("Frame : {}", FRAME.load(Ordering::Acquire));
         }
     }
     return 0;
