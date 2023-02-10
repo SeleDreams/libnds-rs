@@ -5,8 +5,15 @@
 #![allow(clippy::all)]
 extern crate alloc;
 extern crate libc;
-mod bindings;
-pub use bindings::*;
+#[cfg(feature = "arm7")]
+mod arm7_bindings;
+#[cfg(feature = "arm7")]
+pub use arm7_bindings::*;
+#[cfg(feature = "arm9")]
+mod arm9_bindings;
+#[cfg(feature = "arm9")]
+pub use arm9_bindings::*;
+
 mod atomics;
 pub unsafe fn errno() -> s32 {
     (*__getreent())._errno

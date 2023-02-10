@@ -1,6 +1,11 @@
-use super::bindings::*;
+#[cfg(feature = "arm9")]
+pub use super::arm9_bindings::*;
 use libc::c_int;
 use libc::c_void;
+
+#[cfg(feature = "arm7")]
+pub use super::arm7_bindings::*;
+
 const IRQ_CASTED_ALL: u32 = IRQ_ALL as u32;
 
 #[no_mangle]

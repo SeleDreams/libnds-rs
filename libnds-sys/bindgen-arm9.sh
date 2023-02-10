@@ -25,5 +25,5 @@ bindgen "$DEVKITPRO/libnds/include/nds.h" \
     -mfpu=vfp \
     -DARM9 \
     -D__DS__ \
-    >src/bindings.rs
+    >src/arm9_bindings.rs
 cargo fmt --all
