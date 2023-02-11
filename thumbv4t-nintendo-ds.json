@@ -1,40 +1,35 @@
 {
   "abi": "eabi",
   "arch": "arm",
-  "data-layout": "e-m:e-p:32:32-Fi8-i64:64-v128:64:128-a:0:32-n32-S64",
+  "data-layout": "e-S64-p:32:32-i64:64-m:e-n32",
   "env" : "newlib",
-  "exe-suffix" : ".arm9.elf",
+  "exe-suffix" : ".arm7.elf",
   "is-builtin": false,
   "linker": "arm-none-eabi-gcc",
-  "llvm-target": "armv5te-none-gnu",
+  "llvm-target": "thumbv4t-none-eabi",
   "relocation-model": "static",
   "target-pointer-width": "32",
   "max-atomic-width": 32,
-  "disable-redzone": true,
   "panic-strategy" : "abort",
-  "linker-is-gnu": true,
   "target-family": [
       "unix"
     ],
   "no-default-libraries": false,
-  "main-needs-argc-argv":"false",
   "pre-link-args": {
       "gcc": [
-        "-specs=ds_arm9.specs",
+        "-specs=ds_arm7.specs",
         "-g",
+        "-march=armv4t",
         "-mthumb",
         "-mthumb-interwork",
-        "-mtune=arm946e-s",
+        "-mtune=arm7tdmi",
         "-fomit-frame-pointer",
-        "-ffast-math"
+        "-ffast-math",
+        "-mlittle-endian"
       ]
     },
-    "post-link-args" : {
-      "gcc": [
-        "-Wl,--allow-multiple-definition"
-      ]
-    },
-  "vendor" : "nintendo",
-  "os" : "nintendo_ds"
+    "has-elf-tls":"false",
+    "main-needs-argc-argv":"false",
+  "vendor" : "nintendo"
 }
 

@@ -7,9 +7,9 @@ links = "nds9"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
-libc = {version = "0.2.121", default-features = false}
+libc = {version = "0.2.121", default-features = true}
 
 [features]
-default-features = ["arm9"]
+default = ["arm9"]
 arm9 = []
 arm7 = []

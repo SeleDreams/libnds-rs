@@ -1,6 +1,5 @@
 #![no_std]
-#![no_main]
-#![feature(core_intrinsics)]
+#![feature(core_intrinsics, start)]
 use core::sync::atomic::{AtomicI32, Ordering};
 use libc_alloc::LibcAlloc;
 use libc_print::*;
@@ -19,9 +18,8 @@ static mut FRAME: AtomicI32 = AtomicI32::new(0);
 unsafe extern "C" fn vblank() {
     FRAME.store(FRAME.load(Ordering::Acquire) + 1, Ordering::Release);
 }
-
-#[no_mangle]
-pub extern "C" fn main(_argc: isize, _argv: *const *const u8) -> isize {
+#[start]
+fn main(argc: isize, argv: *const *const u8) -> isize {
     unsafe {
         FRAME.store(0, Ordering::Release);
         libc_println!("Hello world from Rust !");
