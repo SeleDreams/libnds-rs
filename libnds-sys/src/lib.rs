@@ -1,19 +1,15 @@
 #![no_std]
-#![allow(non_upper_case_globals)]
-#![allow(non_camel_case_types)]
-#![allow(non_snake_case)]
-#![allow(clippy::all)]
 #![feature(core_intrinsics)]
 extern crate alloc;
 extern crate libc;
 
-#[allow(dead_code)]
-#[allow(non_snake_case)]
+#[allow(non_upper_case_globals,non_camel_case_types,non_snake_case,improper_ctypes,dead_code)]
 #[cfg(feature = "arm7")]
 pub mod arm7_bindings;
 #[cfg(feature = "arm7")]
 pub mod arm7_registers;
 
+#[allow(non_upper_case_globals,non_camel_case_types,non_snake_case,improper_ctypes,dead_code)]
 #[cfg(feature = "arm9")]
 pub mod arm9_bindings;
 #[cfg(feature = "arm9")]

@@ -1,5 +1,5 @@
 #![no_std]
-#![feature(core_intrinsics, start)]
+#![feature(core_intrinsics, start,panic_info_message)]
 extern crate libc;
 extern crate libnds_sys;
 
@@ -13,6 +13,7 @@ mod arm9;
 static ALLOCATOR: libc_alloc::LibcAlloc = libc_alloc::LibcAlloc;
 
 #[panic_handler]
-fn handle_panic(_info: &core::panic::PanicInfo) -> ! {
-    loop {}
+fn panic(_info: &core::panic::PanicInfo) -> ! {
+    loop {
+    }
 }
