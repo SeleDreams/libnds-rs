@@ -6,8 +6,17 @@
 #![feature(core_intrinsics)]
 extern crate alloc;
 extern crate libc;
-#[allow(dead_code)] 
+
+#[allow(dead_code)]
 #[allow(non_snake_case)]
+#[cfg(feature = "arm7")]
 pub mod arm7_bindings;
-pub mod arm7_impl;
+#[cfg(feature = "arm7")]
+pub mod arm7_registers;
+
+#[cfg(feature = "arm9")]
+pub mod arm9_bindings;
+#[cfg(feature = "arm9")]
+pub mod arm9_registers;
+
 mod atomics;

@@ -20,6 +20,5 @@ bindgen "wrapper.h" \
     -I$DEVKITPRO/libnds/include \
     -isystem$DEVKITARM/arm-none-eabi/include \
     -DARM7 \
-    -D__DS__ \
     >src/arm7_bindings.rs
 cargo fmt --all

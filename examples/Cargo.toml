@@ -10,10 +10,8 @@ path = "fifo_example/main.rs"
 libc = {version = "0.2.121", default-features = true}
 libc_alloc = "1.0.4"
 libc-print = "0.1.20"
-libnds7_sys = {path="../libnds7-sys", optional= true}
-libnds9_sys = {path="../libnds9-sys", optional = true}
+libnds_sys = {path="../libnds-sys"}
 
 [features]
-default = ["arm7"]
-arm7 = ["libnds7_sys"]
-arm9 = ["libnds9_sys"]
+arm7 = ["libnds_sys/arm7"]
+arm9 = ["libnds_sys/arm9"]

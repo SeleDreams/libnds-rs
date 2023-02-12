@@ -1,6 +1,7 @@
 #![no_std]
 #![feature(core_intrinsics, start)]
-extern crate libnds7_sys;
+extern crate libc;
+extern crate libnds_sys;
 
 #[cfg(feature = "arm7")]
 mod arm7;

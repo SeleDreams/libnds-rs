@@ -10,20 +10,15 @@ bindgen "wrapper.h" \
     --ctypes-prefix "::libc" \
     --no-prepend-enum-name \
     --generate "functions,types,vars" \
-    --blacklist-type "u(8|16|32|64)" \
-    --blacklist-type "__builtin_va_list" \
-    --blacklist-type "__va_list" \
+    --blocklist-type "__builtin_va_list" \
+    --blocklist-type "__va_list" \
     --with-derive-default \
+    --experimental \
+    --wrap-static-fns \
+    --wrap-static-fns-path=src/arm9_bindings.c \
     -- \
-    --target=armv5te-none-eabi \
-    --sysroot=$DEVKITARM/arm-none-eabi \
-    -isystem$DEVKITARM/arm-none-eabi/include \
     -I$DEVKITPRO/libnds/include \
-    -mfloat-abi=soft \
-    -march=armv5te \
-    -mtune=mpcore \
-    -mfpu=vfp \
+    -isystem$DEVKITARM/arm-none-eabi/include \
     -DARM9 \
-    -D__DS__ \
     >src/arm9_bindings.rs
 cargo fmt --all

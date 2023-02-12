@@ -1,6 +1,3 @@
 [profile.release]
 opt-level=0
 strip=false
-
-[build]
-build-std = ["core","alloc"]

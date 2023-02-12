@@ -1,5 +1,3 @@
-#define ARM7
-#include "../wrapper.h"
 void eepromWaitBusy__extern(void) asm("eepromWaitBusy__extern");
 void eepromWaitBusy__extern() { return eepromWaitBusy(); }
 void dmaCopyWords__extern(uint8 channel, const void *src, void *dest, uint32 size) asm("dmaCopyWords__extern");
