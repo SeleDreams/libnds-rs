@@ -39,7 +39,7 @@ fn main(_argc: isize, _argv: *const *const u8) -> isize {
         // Keep the ARM7 mostly idle
         while !EXIT_FLAG.load(Ordering::Acquire) {
             let keyinput = read_volatile(REG_KEYINPUT);
-            if (keyinput & (KEY_SELECT | KEY_START | KEY_L | KEY_R) as u16) == 0 {
+            if (keyinput & (KEY_SELECT | KEY_START | KEY_L | KEY_R) as u16) > 0 {
                 EXIT_FLAG.store(true, Ordering::Release);
             }
 

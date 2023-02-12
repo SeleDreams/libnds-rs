@@ -1,6 +1,6 @@
-#[cfg(feature = "arm7")]
+#[cfg(target_os = "nintendo_ds_arm7")]
 use super::arm7_bindings::*;
-#[cfg(feature = "arm9")]
+#[cfg(target_os = "nintendo_ds_arm9")]
 use super::arm9_bindings::*;
 
 use libc::c_int;

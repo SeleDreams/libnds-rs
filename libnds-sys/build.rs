@@ -1,7 +1,21 @@
 use std::env;
 
-#[cfg(feature = "arm7")]
+
 fn main() {
+    let target_os = env::var("CARGO_CFG_TARGET_OS").unwrap();
+    if target_os == "nintendo_ds_arm9" {
+        arm9_main();
+    }
+    else if target_os == "nintendo_ds_arm7"
+    {
+        arm7_main();
+    }
+    else {
+        println!("cargo:error=Target OS is not valid! please use the appropriate nintendo DS target json included with this library!")
+    }
+}
+
+fn arm7_main() {
     let dkp_path = env::var("DEVKITPRO").unwrap();
     let profile = env::var("PROFILE").unwrap();
 
@@ -48,8 +62,7 @@ fn main() {
         .compile("bindings");
 }
 
-#[cfg(feature = "arm9")]
-fn main() {
+fn arm9_main() {
     let dkp_path = env::var("DEVKITPRO").unwrap();
     let profile = env::var("PROFILE").unwrap();
 

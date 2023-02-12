@@ -35,6 +35,6 @@
       ]
     },
   "vendor" : "nintendo",
-  "os" : "nintendo_ds"
+  "os" : "nintendo_ds_arm9"
 }
 

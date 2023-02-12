@@ -30,6 +30,7 @@
       ]
     },
     "main-needs-argc-argv":"false",
-  "vendor" : "nintendo"
+  "vendor" : "nintendo",
+  "os" : "nintendo_ds_arm7"
 }
 

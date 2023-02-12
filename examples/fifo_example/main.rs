@@ -2,11 +2,12 @@
 #![feature(core_intrinsics, start,panic_info_message)]
 extern crate libc;
 extern crate libnds_sys;
+extern crate libc_print;
 
-#[cfg(feature = "arm7")]
+#[cfg(target_os = "nintendo_ds_arm7")]
 mod arm7;
 
-#[cfg(feature = "arm9")]
+#[cfg(target_os = "nintendo_ds_arm9")]
 mod arm9;
 
 #[global_allocator]

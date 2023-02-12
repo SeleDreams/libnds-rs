@@ -11,7 +11,3 @@ libc = {version = "0.2.121", default-features = true}
 libc_alloc = "1.0.4"
 libc-print = "0.1.20"
 libnds_sys = {path="../libnds-sys"}
-
-[features]
-arm7 = ["libnds_sys/arm7"]
-arm9 = ["libnds_sys/arm9"]
