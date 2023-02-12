@@ -2,7 +2,7 @@
 
 set -euxo pipefail
 
-bindgen "$DEVKITPRO/libnds/include/nds.h" \
+bindgen "wrapper.h" \
     --rust-target nightly \
     --use-core \
     --distrust-clang-mangling \
@@ -10,19 +10,15 @@ bindgen "$DEVKITPRO/libnds/include/nds.h" \
     --ctypes-prefix "::libc" \
     --no-prepend-enum-name \
     --generate "functions,types,vars" \
-    --blacklist-type "u(8|16|32|64)" \
-    --blacklist-type "__builtin_va_list" \
-    --blacklist-type "__va_list" \
+    --blocklist-type "__builtin_va_list" \
+    --blocklist-type "__va_list" \
     --with-derive-default \
+    --experimental \
+    --wrap-static-fns \
+    --wrap-static-fns-path=src/arm7_bindings.c \
     -- \
-    --target=thumbv4t-none-eabi \
-    --sysroot=$DEVKITARM/arm-none-eabi \
-    -isystem$DEVKITARM/arm-none-eabi/include \
     -I$DEVKITPRO/libnds/include \
-    -mfloat-abi=soft \
-    -march=thumbv4t \
-    -mtune=mpcore \
-    -mfpu=vfp \
+    -isystem$DEVKITARM/arm-none-eabi/include \
     -DARM7 \
     -D__DS__ \
     >src/arm7_bindings.rs

@@ -1,6 +1,6 @@
 [profile.release]
-opt-level=3
-strip=true
+opt-level=0
+strip=false
 
 [build]
-target = "armv5te-nintendo-ds.json"
+build-std = ["core","alloc"]

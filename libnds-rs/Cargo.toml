@@ -10,8 +10,6 @@ crate-type = ["rlib"]
 [dependencies]
 libnds-sys = {path="../libnds-sys"}
 libc = {version = "0.2.121", default-features = true}
-libc_alloc = "1.0.4"
-libc-print = "0.1.20"
 
 [build-dependencies]
 toml = "0.7.2"
@@ -20,9 +18,3 @@ toml = "0.7.2"
 default = ["romfs", "big-stack"]
 romfs = []
 big-stack = []
-
-[package.metadata.cargo-nds]
-romfs_dir = "examples/romfs"
-
-[[example]]
-name = "hello_world"

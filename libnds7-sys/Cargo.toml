@@ -1,15 +1,17 @@
 [package]
-name = "libnds-sys"
+name = "libnds7_sys"
 version = "0.1.0"
 edition = "2021"
 authors = ["SeleDreams"]
-links = "nds9"
+build = "build.rs"
+type = "rlib"
+
+[lib]
+name = "libnds7_sys"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
 libc = {version = "0.2.121", default-features = true}
 
-[features]
-default = ["arm9"]
-arm9 = []
-arm7 = []
+[build-dependencies]
+cc = "1.0.79"

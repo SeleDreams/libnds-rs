@@ -1,2 +1,2 @@
 [workspace]
-members = ["libnds-rs","libnds-sys"]
+members = ["examples"]

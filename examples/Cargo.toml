@@ -1,0 +1,19 @@
+[package]
+name = "libnds_examples"
+version = "0.0.1"
+
+[[bin]]
+name = "fifo_example"
+path = "fifo_example/main.rs"
+
+[dependencies]
+libc = {version = "0.2.121", default-features = true}
+libc_alloc = "1.0.4"
+libc-print = "0.1.20"
+libnds7_sys = {path="../libnds7-sys", optional= true}
+libnds9_sys = {path="../libnds9-sys", optional = true}
+
+[features]
+default = ["arm7"]
+arm7 = ["libnds7_sys"]
+arm9 = ["libnds9_sys"]

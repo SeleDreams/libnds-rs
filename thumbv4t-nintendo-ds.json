@@ -1,7 +1,7 @@
 {
   "abi": "eabi",
   "arch": "arm",
-  "data-layout": "e-S64-p:32:32-i64:64-m:e-n32",
+  "data-layout": "e-m:e-p:32:32-Fi8-i64:64-v128:64:128-a:0:32-n32-S64",
   "env" : "newlib",
   "exe-suffix" : ".arm7.elf",
   "is-builtin": false,
@@ -10,6 +10,7 @@
   "relocation-model": "static",
   "target-pointer-width": "32",
   "max-atomic-width": 32,
+  "features" :"+soft-float,+strict-align,+atomics-32",
   "panic-strategy" : "abort",
   "target-family": [
       "unix"
@@ -19,16 +20,15 @@
       "gcc": [
         "-specs=ds_arm7.specs",
         "-g",
-        "-march=armv4t",
-        "-mthumb",
         "-mthumb-interwork",
+        "-march=armv4t",
+        "-mcpu=-mcpu=arm7tdmi",
+        "-mthumb",
         "-mtune=arm7tdmi",
         "-fomit-frame-pointer",
-        "-ffast-math",
-        "-mlittle-endian"
+        "-ffast-math"
       ]
     },
-    "has-elf-tls":"false",
     "main-needs-argc-argv":"false",
   "vendor" : "nintendo"
 }

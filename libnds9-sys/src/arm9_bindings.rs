@@ -576,6 +576,37 @@ pub const _PC_REC_MAX_XFER_SIZE: u32 = 17;
 pub const _PC_REC_MIN_XFER_SIZE: u32 = 18;
 pub const _PC_REC_XFER_ALIGN: u32 = 19;
 pub const _PC_TIMESTAMP_RESOLUTION: u32 = 20;
+pub const DSWIFI_MAJOR: u32 = 0;
+pub const DSWIFI_MINOR: u32 = 4;
+pub const DSWIFI_REVISION: u32 = 2;
+pub const DSWIFI_VERSION: &'static [u8; 6usize] = b"0.4.2\0";
+pub const WIFIINIT_OPTION_USELED: u32 = 2;
+pub const WIFIINIT_OPTION_USEHEAP_64: u32 = 0;
+pub const WIFIINIT_OPTION_USEHEAP_128: u32 = 4096;
+pub const WIFIINIT_OPTION_USEHEAP_256: u32 = 8192;
+pub const WIFIINIT_OPTION_USEHEAP_512: u32 = 12288;
+pub const WIFIINIT_OPTION_USECUSTOMALLOC: u32 = 16384;
+pub const WIFIINIT_OPTION_HEAPMASK: u32 = 61440;
+pub const WFLAG_PACKET_DATA: u32 = 1;
+pub const WFLAG_PACKET_MGT: u32 = 2;
+pub const WFLAG_PACKET_BEACON: u32 = 4;
+pub const WFLAG_PACKET_CTRL: u32 = 8;
+pub const WFLAG_PACKET_ALL: u32 = 65535;
+pub const WFLAG_APDATA_ADHOC: u32 = 1;
+pub const WFLAG_APDATA_WEP: u32 = 2;
+pub const WFLAG_APDATA_WPA: u32 = 4;
+pub const WFLAG_APDATA_COMPATIBLE: u32 = 8;
+pub const WFLAG_APDATA_EXTCOMPATIBLE: u32 = 16;
+pub const WFLAG_APDATA_SHORTPREAMBLE: u32 = 32;
+pub const WFLAG_APDATA_ACTIVE: u32 = 32768;
+pub const WFC_CONNECT: u32 = 1;
+pub const INIT_ONLY: u32 = 0;
+pub const MMCB_SONGREQUEST: u32 = 26;
+pub const MMCB_SAMPREQUEST: u32 = 27;
+pub const MMCB_DELETESONG: u32 = 28;
+pub const MMCB_DELETESAMPLE: u32 = 29;
+pub const MMCB_SONGMESSAGE: u32 = 42;
+pub const MMCB_SONGFINISHED: u32 = 43;
 pub type __int8_t = ::libc::c_schar;
 pub type __uint8_t = ::libc::c_uchar;
 pub type __int16_t = ::libc::c_short;
@@ -7436,4 +7467,858 @@ extern "C" {
 }
 extern "C" {
     pub fn nand_GetSize() -> ssize_t;
+}
+pub const WIFI_RETURN_OK: WIFI_RETURN = 0;
+pub const WIFI_RETURN_LOCKFAILED: WIFI_RETURN = 1;
+pub const WIFI_RETURN_ERROR: WIFI_RETURN = 2;
+pub const WIFI_RETURN_PARAMERROR: WIFI_RETURN = 3;
+pub type WIFI_RETURN = ::libc::c_uint;
+pub const WSTAT_RXQUEUEDPACKETS: WIFI_STATS = 0;
+pub const WSTAT_TXQUEUEDPACKETS: WIFI_STATS = 1;
+pub const WSTAT_RXQUEUEDBYTES: WIFI_STATS = 2;
+pub const WSTAT_TXQUEUEDBYTES: WIFI_STATS = 3;
+pub const WSTAT_RXQUEUEDLOST: WIFI_STATS = 4;
+pub const WSTAT_TXQUEUEDREJECTED: WIFI_STATS = 5;
+pub const WSTAT_RXPACKETS: WIFI_STATS = 6;
+pub const WSTAT_RXBYTES: WIFI_STATS = 7;
+pub const WSTAT_RXDATABYTES: WIFI_STATS = 8;
+pub const WSTAT_TXPACKETS: WIFI_STATS = 9;
+pub const WSTAT_TXBYTES: WIFI_STATS = 10;
+pub const WSTAT_TXDATABYTES: WIFI_STATS = 11;
+pub const WSTAT_ARM7_UPDATES: WIFI_STATS = 12;
+pub const WSTAT_DEBUG: WIFI_STATS = 13;
+pub const WSTAT_HW_1B0: WIFI_STATS = 14;
+pub const WSTAT_HW_1B1: WIFI_STATS = 15;
+pub const WSTAT_HW_1B2: WIFI_STATS = 16;
+pub const WSTAT_HW_1B3: WIFI_STATS = 17;
+pub const WSTAT_HW_1B4: WIFI_STATS = 18;
+pub const WSTAT_HW_1B5: WIFI_STATS = 19;
+pub const WSTAT_HW_1B6: WIFI_STATS = 20;
+pub const WSTAT_HW_1B7: WIFI_STATS = 21;
+pub const WSTAT_HW_1B8: WIFI_STATS = 22;
+pub const WSTAT_HW_1B9: WIFI_STATS = 23;
+pub const WSTAT_HW_1BA: WIFI_STATS = 24;
+pub const WSTAT_HW_1BB: WIFI_STATS = 25;
+pub const WSTAT_HW_1BC: WIFI_STATS = 26;
+pub const WSTAT_HW_1BD: WIFI_STATS = 27;
+pub const WSTAT_HW_1BE: WIFI_STATS = 28;
+pub const WSTAT_HW_1BF: WIFI_STATS = 29;
+pub const WSTAT_HW_1C0: WIFI_STATS = 30;
+pub const WSTAT_HW_1C1: WIFI_STATS = 31;
+pub const WSTAT_HW_1C4: WIFI_STATS = 32;
+pub const WSTAT_HW_1C5: WIFI_STATS = 33;
+pub const WSTAT_HW_1D0: WIFI_STATS = 34;
+pub const WSTAT_HW_1D1: WIFI_STATS = 35;
+pub const WSTAT_HW_1D2: WIFI_STATS = 36;
+pub const WSTAT_HW_1D3: WIFI_STATS = 37;
+pub const WSTAT_HW_1D4: WIFI_STATS = 38;
+pub const WSTAT_HW_1D5: WIFI_STATS = 39;
+pub const WSTAT_HW_1D6: WIFI_STATS = 40;
+pub const WSTAT_HW_1D7: WIFI_STATS = 41;
+pub const WSTAT_HW_1D8: WIFI_STATS = 42;
+pub const WSTAT_HW_1D9: WIFI_STATS = 43;
+pub const WSTAT_HW_1DA: WIFI_STATS = 44;
+pub const WSTAT_HW_1DB: WIFI_STATS = 45;
+pub const WSTAT_HW_1DC: WIFI_STATS = 46;
+pub const WSTAT_HW_1DD: WIFI_STATS = 47;
+pub const WSTAT_HW_1DE: WIFI_STATS = 48;
+pub const WSTAT_HW_1DF: WIFI_STATS = 49;
+pub const NUM_WIFI_STATS: WIFI_STATS = 50;
+pub type WIFI_STATS = ::libc::c_uint;
+pub const WIFIMODE_DISABLED: WIFI_MODE = 0;
+pub const WIFIMODE_NORMAL: WIFI_MODE = 1;
+pub const WIFIMODE_SCAN: WIFI_MODE = 2;
+pub const WIFIMODE_ASSOCIATE: WIFI_MODE = 3;
+pub const WIFIMODE_ASSOCIATED: WIFI_MODE = 4;
+pub const WIFIMODE_DISASSOCIATE: WIFI_MODE = 5;
+pub const WIFIMODE_CANNOTASSOCIATE: WIFI_MODE = 6;
+pub type WIFI_MODE = ::libc::c_uint;
+pub const WIFI_AUTHLEVEL_DISCONNECTED: WIFI_AUTHLEVEL = 0;
+pub const WIFI_AUTHLEVEL_AUTHENTICATED: WIFI_AUTHLEVEL = 1;
+pub const WIFI_AUTHLEVEL_ASSOCIATED: WIFI_AUTHLEVEL = 2;
+pub const WIFI_AUTHLEVEL_DEASSOCIATED: WIFI_AUTHLEVEL = 3;
+pub type WIFI_AUTHLEVEL = ::libc::c_uint;
+pub const WIFIGETDATA_MACADDRESS: WIFIGETDATA = 0;
+pub const WIFIGETDATA_NUMWFCAPS: WIFIGETDATA = 1;
+pub const MAX_WIFIGETDATA: WIFIGETDATA = 2;
+pub type WIFIGETDATA = ::libc::c_uint;
+pub const WEPMODE_NONE: WEPMODES = 0;
+pub const WEPMODE_40BIT: WEPMODES = 1;
+pub const WEPMODE_128BIT: WEPMODES = 2;
+pub type WEPMODES = ::libc::c_uint;
+pub const ASSOCSTATUS_DISCONNECTED: WIFI_ASSOCSTATUS = 0;
+pub const ASSOCSTATUS_SEARCHING: WIFI_ASSOCSTATUS = 1;
+pub const ASSOCSTATUS_AUTHENTICATING: WIFI_ASSOCSTATUS = 2;
+pub const ASSOCSTATUS_ASSOCIATING: WIFI_ASSOCSTATUS = 3;
+pub const ASSOCSTATUS_ACQUIRINGDHCP: WIFI_ASSOCSTATUS = 4;
+pub const ASSOCSTATUS_ASSOCIATED: WIFI_ASSOCSTATUS = 5;
+pub const ASSOCSTATUS_CANNOTCONNECT: WIFI_ASSOCSTATUS = 6;
+pub type WIFI_ASSOCSTATUS = ::libc::c_uint;
+extern "C" {
+    pub static mut ASSOCSTATUS_STRINGS: [*const ::libc::c_char; 0usize];
+}
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone)]
+pub struct WIFI_TXHEADER {
+    pub enable_flags: u16_,
+    pub unknown: u16_,
+    pub countup: u16_,
+    pub beaconfreq: u16_,
+    pub tx_rate: u16_,
+    pub tx_length: u16_,
+}
+pub type Wifi_TxHeader = WIFI_TXHEADER;
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone)]
+pub struct WIFI_RXHEADER {
+    pub a: u16_,
+    pub b: u16_,
+    pub c: u16_,
+    pub d: u16_,
+    pub byteLength: u16_,
+    pub rssi_: u16_,
+}
+pub type Wifi_RxHeader = WIFI_RXHEADER;
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct WIFI_ACCESSPOINT {
+    pub ssid: [::libc::c_char; 33usize],
+    pub ssid_len: ::libc::c_char,
+    pub bssid: [u8_; 6usize],
+    pub macaddr: [u8_; 6usize],
+    pub maxrate: u16_,
+    pub timectr: u32_,
+    pub rssi: u16_,
+    pub flags: u16_,
+    pub spinlock: u32_,
+    pub channel: u8_,
+    pub rssi_past: [u8_; 8usize],
+    pub base_rates: [u8_; 16usize],
+}
+impl Default for WIFI_ACCESSPOINT {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+pub type Wifi_AccessPoint = WIFI_ACCESSPOINT;
+pub type WifiPacketHandler =
+    ::core::option::Option<unsafe extern "C" fn(arg1: ::libc::c_int, arg2: ::libc::c_int)>;
+pub type WifiSyncHandler = ::core::option::Option<unsafe extern "C" fn()>;
+extern "C" {
+    #[doc = ""]
+    pub fn Wifi_Init(initflags: ::libc::c_int) -> ::libc::c_ulong;
+}
+extern "C" {
+    pub fn Wifi_CheckInit() -> ::libc::c_int;
+}
+extern "C" {
+    pub fn Wifi_DisableWifi();
+}
+extern "C" {
+    pub fn Wifi_EnableWifi();
+}
+extern "C" {
+    pub fn Wifi_SetPromiscuousMode(enable: ::libc::c_int);
+}
+extern "C" {
+    pub fn Wifi_ScanMode();
+}
+extern "C" {
+    pub fn Wifi_SetChannel(channel: ::libc::c_int);
+}
+extern "C" {
+    pub fn Wifi_GetNumAP() -> ::libc::c_int;
+}
+extern "C" {
+    pub fn Wifi_GetAPData(apnum: ::libc::c_int, apdata: *mut Wifi_AccessPoint) -> ::libc::c_int;
+}
+extern "C" {
+    pub fn Wifi_FindMatchingAP(
+        numaps: ::libc::c_int,
+        apdata: *mut Wifi_AccessPoint,
+        match_dest: *mut Wifi_AccessPoint,
+    ) -> ::libc::c_int;
+}
+extern "C" {
+    pub fn Wifi_ConnectAP(
+        apdata: *mut Wifi_AccessPoint,
+        wepmode: ::libc::c_int,
+        wepkeyid: ::libc::c_int,
+        wepkey: *mut ::libc::c_uchar,
+    ) -> ::libc::c_int;
+}
+extern "C" {
+    pub fn Wifi_AutoConnect();
+}
+extern "C" {
+    pub fn Wifi_AssocStatus() -> ::libc::c_int;
+}
+extern "C" {
+    pub fn Wifi_DisconnectAP() -> ::libc::c_int;
+}
+extern "C" {
+    pub fn Wifi_Timer(num_ms: ::libc::c_int);
+}
+extern "C" {
+    pub fn Wifi_GetIP() -> ::libc::c_ulong;
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct in_addr {
+    _unused: [u8; 0],
+}
+extern "C" {
+    pub fn Wifi_GetIPInfo(
+        pGateway: *mut in_addr,
+        pSnmask: *mut in_addr,
+        pDns1: *mut in_addr,
+        pDns2: *mut in_addr,
+    ) -> in_addr;
+}
+extern "C" {
+    pub fn Wifi_SetIP(
+        IPaddr: ::libc::c_ulong,
+        gateway: ::libc::c_ulong,
+        subnetmask: ::libc::c_ulong,
+        dns1: ::libc::c_ulong,
+        dns2: ::libc::c_ulong,
+    );
+}
+extern "C" {
+    pub fn Wifi_GetData(
+        datatype: ::libc::c_int,
+        bufferlen: ::libc::c_int,
+        buffer: *mut ::libc::c_uchar,
+    ) -> ::libc::c_int;
+}
+extern "C" {
+    pub fn Wifi_GetStats(statnum: ::libc::c_int) -> u32_;
+}
+extern "C" {
+    #[doc = ""]
+    pub fn Wifi_RawTxFrame(
+        datalen: ::libc::c_ushort,
+        rate: ::libc::c_ushort,
+        data: *mut ::libc::c_ushort,
+    ) -> ::libc::c_int;
+}
+extern "C" {
+    pub fn Wifi_RawSetPacketHandler(wphfunc: WifiPacketHandler);
+}
+extern "C" {
+    pub fn Wifi_RxRawReadPacket(
+        packetID: ::libc::c_long,
+        readlength: ::libc::c_long,
+        data: *mut ::libc::c_ushort,
+    ) -> ::libc::c_int;
+}
+extern "C" {
+    #[doc = ""]
+    pub fn Wifi_Update();
+}
+extern "C" {
+    pub fn Wifi_Sync();
+}
+extern "C" {
+    pub fn Wifi_SetSyncHandler(sh: WifiSyncHandler);
+}
+extern "C" {
+    pub fn Wifi_InitDefault(useFirmwareSettings: bool) -> bool;
+}
+pub type mm_word = ::libc::c_uint;
+pub type mm_hword = ::libc::c_ushort;
+pub type mm_byte = ::libc::c_uchar;
+pub type mm_sfxhand = ::libc::c_ushort;
+pub type mm_bool = ::libc::c_uchar;
+pub type mm_addr = *mut ::libc::c_void;
+pub type mm_reg = *mut ::libc::c_void;
+pub const MM_MODE_A: mm_mode_enum = 0;
+pub const MM_MODE_B: mm_mode_enum = 1;
+pub const MM_MODE_C: mm_mode_enum = 2;
+pub type mm_mode_enum = ::libc::c_uint;
+pub const MM_STREAM_8BIT_MONO: mm_stream_formats = 0;
+pub const MM_STREAM_8BIT_STEREO: mm_stream_formats = 1;
+pub const MM_STREAM_16BIT_MONO: mm_stream_formats = 2;
+pub const MM_STREAM_16BIT_STEREO: mm_stream_formats = 3;
+pub type mm_stream_formats = ::libc::c_uint;
+pub type mm_callback =
+    ::core::option::Option<unsafe extern "C" fn(msg: mm_word, param: mm_word) -> mm_word>;
+pub type mm_stream_func = ::core::option::Option<
+    unsafe extern "C" fn(length: mm_word, dest: mm_addr, format: mm_stream_formats) -> mm_word,
+>;
+pub const MMRF_MEMORY: mm_reverbflags = 1;
+pub const MMRF_DELAY: mm_reverbflags = 2;
+pub const MMRF_RATE: mm_reverbflags = 4;
+pub const MMRF_FEEDBACK: mm_reverbflags = 8;
+pub const MMRF_PANNING: mm_reverbflags = 16;
+pub const MMRF_LEFT: mm_reverbflags = 32;
+pub const MMRF_RIGHT: mm_reverbflags = 64;
+pub const MMRF_BOTH: mm_reverbflags = 96;
+pub const MMRF_INVERSEPAN: mm_reverbflags = 128;
+pub const MMRF_NODRYLEFT: mm_reverbflags = 256;
+pub const MMRF_NODRYRIGHT: mm_reverbflags = 512;
+pub const MMRF_8BITLEFT: mm_reverbflags = 1024;
+pub const MMRF_16BITLEFT: mm_reverbflags = 2048;
+pub const MMRF_8BITRIGHT: mm_reverbflags = 4096;
+pub const MMRF_16BITRIGHT: mm_reverbflags = 8192;
+pub const MMRF_DRYLEFT: mm_reverbflags = 16384;
+pub const MMRF_DRYRIGHT: mm_reverbflags = 32768;
+pub type mm_reverbflags = ::libc::c_uint;
+pub const MMRC_LEFT: mm_reverbch = 1;
+pub const MMRC_RIGHT: mm_reverbch = 2;
+pub const MMRC_BOTH: mm_reverbch = 3;
+pub type mm_reverbch = ::libc::c_uint;
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct mmreverbcfg {
+    pub flags: mm_word,
+    pub memory: mm_addr,
+    pub delay: mm_hword,
+    pub rate: mm_hword,
+    pub feedback: mm_hword,
+    pub panning: mm_byte,
+}
+impl Default for mmreverbcfg {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+pub type mm_reverb_cfg = mmreverbcfg;
+pub const MM_PLAY_LOOP: mm_pmode = 0;
+pub const MM_PLAY_ONCE: mm_pmode = 1;
+pub type mm_pmode = ::libc::c_uint;
+pub const MM_MIX_8KHZ: mm_mixmode = 0;
+pub const MM_MIX_10KHZ: mm_mixmode = 1;
+pub const MM_MIX_13KHZ: mm_mixmode = 2;
+pub const MM_MIX_16KHZ: mm_mixmode = 3;
+pub const MM_MIX_18KHZ: mm_mixmode = 4;
+pub const MM_MIX_21KHZ: mm_mixmode = 5;
+pub const MM_MIX_27KHZ: mm_mixmode = 6;
+pub const MM_MIX_31KHZ: mm_mixmode = 7;
+pub type mm_mixmode = ::libc::c_uint;
+pub const MM_TIMER0: mm_stream_timer = 0;
+pub const MM_TIMER1: mm_stream_timer = 1;
+pub const MM_TIMER2: mm_stream_timer = 2;
+pub const MM_TIMER3: mm_stream_timer = 3;
+pub type mm_stream_timer = ::libc::c_uint;
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub struct t_mmdssample {
+    pub loop_start: mm_word,
+    pub __bindgen_anon_1: t_mmdssample__bindgen_ty_1,
+    pub format: mm_byte,
+    pub repeat_mode: mm_byte,
+    pub base_rate: mm_hword,
+    pub data: mm_addr,
+}
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub union t_mmdssample__bindgen_ty_1 {
+    pub loop_length: mm_word,
+    pub length: mm_word,
+}
+impl Default for t_mmdssample__bindgen_ty_1 {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+impl Default for t_mmdssample {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+pub type mm_ds_sample = t_mmdssample;
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub struct t_mmsoundeffect {
+    pub __bindgen_anon_1: t_mmsoundeffect__bindgen_ty_1,
+    pub rate: mm_hword,
+    pub handle: mm_sfxhand,
+    pub volume: mm_byte,
+    pub panning: mm_byte,
+}
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub union t_mmsoundeffect__bindgen_ty_1 {
+    pub id: mm_word,
+    pub sample: *mut mm_ds_sample,
+}
+impl Default for t_mmsoundeffect__bindgen_ty_1 {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+impl Default for t_mmsoundeffect {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+pub type mm_sound_effect = t_mmsoundeffect;
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct t_mmgbasystem {
+    pub mixing_mode: mm_mixmode,
+    pub mod_channel_count: mm_word,
+    pub mix_channel_count: mm_word,
+    pub module_channels: mm_addr,
+    pub active_channels: mm_addr,
+    pub mixing_channels: mm_addr,
+    pub mixing_memory: mm_addr,
+    pub wave_memory: mm_addr,
+    pub soundbank: mm_addr,
+}
+impl Default for t_mmgbasystem {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+pub type mm_gba_system = t_mmgbasystem;
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct t_mmdssystem {
+    pub mod_count: mm_word,
+    pub samp_count: mm_word,
+    pub mem_bank: *mut mm_word,
+    pub fifo_channel: mm_word,
+}
+impl Default for t_mmdssystem {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+pub type mm_ds_system = t_mmdssystem;
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone)]
+pub struct t_mmstream {
+    pub sampling_rate: mm_word,
+    pub buffer_length: mm_word,
+    pub callback: mm_stream_func,
+    pub format: mm_word,
+    pub timer: mm_word,
+    pub manual: mm_bool,
+}
+pub type mm_stream = t_mmstream;
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone)]
+pub struct t_mmlayer {
+    pub tick: mm_byte,
+    pub row: mm_byte,
+    pub position: mm_byte,
+    pub nrows: mm_byte,
+    pub global_volume: mm_byte,
+    pub speed: mm_byte,
+    pub active: mm_byte,
+    pub bpm: mm_byte,
+}
+pub type mm_modlayer = t_mmlayer;
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tmm_voice {
+    pub source: mm_addr,
+    pub length: mm_word,
+    pub loop_start: mm_hword,
+    pub timer: mm_hword,
+    pub flags: mm_byte,
+    pub format: mm_byte,
+    pub repeat: mm_byte,
+    pub volume: mm_byte,
+    pub divider: mm_byte,
+    pub panning: mm_byte,
+    pub index: mm_byte,
+    pub reserved: [mm_byte; 1usize],
+}
+impl Default for tmm_voice {
+    fn default() -> Self {
+        let mut s = ::core::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::core::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+pub type mm_voice = tmm_voice;
+pub const MMVF_FREQ: ::libc::c_uint = 2;
+pub const MMVF_VOLUME: ::libc::c_uint = 4;
+pub const MMVF_PANNING: ::libc::c_uint = 8;
+pub const MMVF_SOURCE: ::libc::c_uint = 16;
+pub const MMVF_STOP: ::libc::c_uint = 32;
+pub type _bindgen_ty_1 = ::libc::c_uint;
+extern "C" {
+    #[doc = " mmInitDefault( char* soundbank_file )"]
+    #[doc = ""]
+    #[doc = " Initialize Maxmod using default settings."]
+    #[doc = ""]
+    #[doc = " soundbank_file : Filename of the soundbank to use."]
+    pub fn mmInitDefault(soundbank_file: *mut ::libc::c_char);
+}
+extern "C" {
+    #[doc = " mmInitDefaultMem( mm_addr soundbank )"]
+    #[doc = ""]
+    #[doc = " Initialize Maxmod using default settings."]
+    #[doc = " Use this when you have the entire soundbank loaded into memory."]
+    #[doc = ""]
+    #[doc = " soundbank : Address of soundbank data."]
+    pub fn mmInitDefaultMem(soundbank: mm_addr);
+}
+extern "C" {
+    #[doc = " mmInit( mm_ds_system* system )"]
+    #[doc = ""]
+    #[doc = " Initialize Maxmod"]
+    #[doc = ""]
+    #[doc = " system : Configuration info."]
+    pub fn mmInit(system: *mut mm_ds_system);
+}
+extern "C" {
+    #[doc = " mmSelectMode( mm_mode_enum mode )"]
+    #[doc = ""]
+    #[doc = " Select audio mode"]
+    #[doc = ""]
+    #[doc = " mode:"]
+    #[doc = "   MM_MODE_A : Hardware Mixing"]
+    #[doc = "   MM_MODE_B : Interpolated Mixing"]
+    #[doc = "   MM_MODE_C : Extended Mixing"]
+    pub fn mmSelectMode(mode: mm_mode_enum);
+}
+extern "C" {
+    #[doc = " mmLoad( mm_word module_ID )"]
+    #[doc = ""]
+    #[doc = " Load a module into memory. Must be used before starting"]
+    #[doc = " a module."]
+    #[doc = ""]
+    #[doc = " module_ID : ID of module. (defined in soundbank header)"]
+    pub fn mmLoad(module_ID: mm_word);
+}
+extern "C" {
+    #[doc = " mmUnload( mm_word module_ID )"]
+    #[doc = ""]
+    #[doc = " Unload a module from memory."]
+    #[doc = ""]
+    #[doc = " module_ID : ID of module. (defined in soundbank header)"]
+    pub fn mmUnload(module_ID: mm_word);
+}
+extern "C" {
+    #[doc = " mmLoadEffect( mm_word sample_ID )"]
+    #[doc = ""]
+    #[doc = " Load a sound effect into memory. Use before mmEffect."]
+    #[doc = ""]
+    #[doc = " sample_ID : ID of sample. (defined in soundbank header)"]
+    pub fn mmLoadEffect(sample_ID: mm_word);
+}
+extern "C" {
+    #[doc = " mmUnloadEffect( mm_word sample_ID )"]
+    #[doc = ""]
+    #[doc = " Unload sound effect from memory."]
+    #[doc = ""]
+    #[doc = " sample_ID : ID of sample. (defined in soundbank header)"]
+    pub fn mmUnloadEffect(sample_ID: mm_word);
+}
+extern "C" {
+    #[doc = " mmLockChannels( mm_word bitmask )"]
+    #[doc = ""]
+    #[doc = " Lock audio channels from being used by Maxmod."]
+    #[doc = ""]
+    #[doc = " bitmask : Bitmask of which channels should be locked."]
+    #[doc = " (&1 = ch0, &2 = ch1, &4 = ch2, &8 = ch4, etc...)"]
+    pub fn mmLockChannels(bitmask: mm_word);
+}
+extern "C" {
+    #[doc = " mmUnlockChannels( mm_word bitmask )"]
+    #[doc = ""]
+    #[doc = " Unlock audio channels so Maxmod can use them."]
+    #[doc = ""]
+    #[doc = " bitmask : Bitmask of which channels should be unlocked."]
+    #[doc = " (&1 = ch0, &2 = ch1, &4 = ch2, &8 = ch4, etc...)"]
+    pub fn mmUnlockChannels(bitmask: mm_word);
+}
+extern "C" {
+    #[doc = " mmSetEventHandler( mm_callback handler )"]
+    #[doc = ""]
+    #[doc = " Setup handler to receive playback events."]
+    #[doc = ""]
+    #[doc = " handler : Pointer to your function."]
+    pub fn mmSetEventHandler(handler: mm_callback);
+}
+extern "C" {
+    #[doc = " mmSoundBankInMemory( mm_addr address )"]
+    #[doc = " mmSoundBankInFiles( char* filename )"]
+    #[doc = " mmSetCustomSoundBankHandler( mm_callback p_loader )"]
+    #[doc = ""]
+    #[doc = " Setup soundbank interface."]
+    #[doc = " This is automatically done by mmInitDefault/mmInitDefaultMem."]
+    pub fn mmSoundBankInMemory(address: mm_addr);
+}
+extern "C" {
+    pub fn mmSoundBankInFiles(filename: *mut ::libc::c_char);
+}
+extern "C" {
+    pub fn mmSetCustomSoundBankHandler(p_loader: mm_callback);
+}
+extern "C" {
+    #[doc = " mmStart( mm_word module_ID, mm_pmode mode )"]
+    #[doc = ""]
+    #[doc = " Start module playback."]
+    #[doc = ""]
+    #[doc = " module_ID : ID of module to play (defined in soundbank header)"]
+    #[doc = "             Make sure the module is loaded via mmLoad"]
+    #[doc = ""]
+    #[doc = " mode : Mode of playback: MM_PLAY_ONCE or MM_PLAY_LOOP"]
+    pub fn mmStart(module_ID: mm_word, mode: mm_pmode);
+}
+extern "C" {
+    #[doc = " mmPause()"]
+    #[doc = ""]
+    #[doc = " Pause module playback. Resume with mmResume()."]
+    pub fn mmPause();
+}
+extern "C" {
+    #[doc = " mmResume()"]
+    #[doc = ""]
+    #[doc = " Resume module playback. Pause with mmPause()."]
+    pub fn mmResume();
+}
+extern "C" {
+    #[doc = " mmStop()"]
+    #[doc = ""]
+    #[doc = " Stop module playback. Start again (from the beginning)"]
+    #[doc = " with mmStart()."]
+    pub fn mmStop();
+}
+extern "C" {
+    #[doc = " mmPosition( mm_word position )"]
+    #[doc = ""]
+    #[doc = " Set playback position."]
+    #[doc = ""]
+    #[doc = " position : New position in module sequence."]
+    pub fn mmPosition(position: mm_word);
+}
+extern "C" {
+    #[doc = " mmJingle( mm_word module_ID )"]
+    #[doc = ""]
+    #[doc = " Play module as jingle. Jingles are limited to 4 channels only."]
+    #[doc = ""]
+    #[doc = " module_ID : ID of module"]
+    pub fn mmJingle(module_ID: mm_word);
+}
+extern "C" {
+    #[doc = " mmSetModuleVolume( mm_word volume )"]
+    #[doc = " mmSetJingleVolume( mm_word volume )"]
+    #[doc = ""]
+    #[doc = " Set master volume scale for music/jingle playback."]
+    #[doc = ""]
+    #[doc = " volume : 0->1024 representing 0%->100% volume"]
+    pub fn mmSetModuleVolume(volume: mm_word);
+}
+extern "C" {
+    pub fn mmSetJingleVolume(volume: mm_word);
+}
+extern "C" {
+    #[doc = " mmSetModuleTempo( mm_word tempo )"]
+    #[doc = ""]
+    #[doc = " Set tempo of playback."]
+    #[doc = ""]
+    #[doc = " tempo : Fixed point (Q10) value representing tempo."]
+    #[doc = "         Range = 0x200 -> 0x800 = 0.5 -> 2.0"]
+    pub fn mmSetModuleTempo(tempo: mm_word);
+}
+extern "C" {
+    #[doc = " mmSetModulePitch( mm_word pitch )"]
+    #[doc = ""]
+    #[doc = " Set pitch of playback."]
+    #[doc = ""]
+    #[doc = " pitch : Range = 0x200 -> 0x800 = 0.5 -> 2.0"]
+    pub fn mmSetModulePitch(pitch: mm_word);
+}
+extern "C" {
+    #[doc = " mmActive()"]
+    #[doc = ""]
+    #[doc = " Returns nonzero if module is playing."]
+    pub fn mmActive() -> mm_bool;
+}
+extern "C" {
+    #[doc = " mmEffect( mm_word sample_ID )"]
+    #[doc = ""]
+    #[doc = " Play a sound effect at its default rate with full volume"]
+    #[doc = " and centered panning."]
+    #[doc = " Remember to load the effect via mmLoadEffect first."]
+    #[doc = ""]
+    #[doc = " sample_ID : ID of sample to play (defined in soundbank header)"]
+    #[doc = ""]
+    #[doc = " Returns mm_sfxhand which may be used to modify the sound later."]
+    pub fn mmEffect(sample_ID: mm_word) -> mm_sfxhand;
+}
+extern "C" {
+    #[doc = " mmEffectEx( mm_sound_effect* sound )"]
+    #[doc = ""]
+    #[doc = " Play a sound effect with rate/volume/panning specified."]
+    #[doc = " Remember to load the effect via mmLoadEffect first."]
+    #[doc = ""]
+    #[doc = " sound : sound effect info"]
+    pub fn mmEffectEx(sound: *mut mm_sound_effect) -> mm_sfxhand;
+}
+extern "C" {
+    #[doc = " mmEffectVolume( mm_sfxhand handle, mm_byte volume )"]
+    #[doc = ""]
+    #[doc = " Set effect volume."]
+    #[doc = ""]
+    #[doc = " handle : Sound effect handle (returned from mmEffect/Ex)"]
+    #[doc = " volume : 0..255 = silent..normal"]
+    pub fn mmEffectVolume(handle: mm_sfxhand, volume: mm_word);
+}
+extern "C" {
+    #[doc = " mmEffectPanning( mm_sfxhand handle, mm_byte panning )"]
+    #[doc = ""]
+    #[doc = " Set effect panning."]
+    #[doc = ""]
+    #[doc = " handle : Sound effect handle (returned from mmEffect/Ex)"]
+    #[doc = " panning : 0..255 = hard left..hard right"]
+    pub fn mmEffectPanning(handle: mm_sfxhand, panning: mm_byte);
+}
+extern "C" {
+    #[doc = " mmEffectRate( mm_sfxhandle, mm_word rate )"]
+    #[doc = ""]
+    #[doc = " Set effect playback rate."]
+    #[doc = ""]
+    #[doc = " handle : Sound effect handle (returned from mmEffect/Ex)"]
+    #[doc = " rate : 6.10 fixed point value representing rate. A value of"]
+    #[doc = "        2048 will make the pitch one octave higher than the"]
+    #[doc = "        default setting"]
+    pub fn mmEffectRate(handle: mm_sfxhand, rate: mm_word);
+}
+extern "C" {
+    #[doc = " mmEffectScaleRate( mm_sfxhandle, mm_word factor )"]
+    #[doc = ""]
+    #[doc = " Scale effect playback rate."]
+    #[doc = ""]
+    #[doc = " handle : Sound effect handle (returned from mmEffect/Ex)"]
+    #[doc = " factor : 6.10 fixed point value to multiply the rate by."]
+    pub fn mmEffectScaleRate(handle: mm_sfxhand, factor: mm_word);
+}
+extern "C" {
+    #[doc = " mmEffectCancel( mm_sfx_handle handle )"]
+    #[doc = ""]
+    #[doc = " Stop sound effect."]
+    #[doc = ""]
+    #[doc = " handle : Sound effect handle (returned from mmEffect/Ex)"]
+    pub fn mmEffectCancel(handle: mm_sfxhand);
+}
+extern "C" {
+    #[doc = " mmEffectRelease( mm_sfxhand handle )"]
+    #[doc = ""]
+    #[doc = " Release sound effect. This discards the handle and allows the"]
+    #[doc = " effect to be overidden by music/other effects."]
+    pub fn mmEffectRelease(handle: mm_sfxhand);
+}
+extern "C" {
+    #[doc = " mmEffectExt( mm_sound_effect* sound, mm_sample* sample )"]
+    #[doc = ""]
+    #[doc = " Play external sound."]
+    #[doc = ""]
+    #[doc = " sound : Pointer to sound effect info"]
+    #[doc = " sample : Pointer to external sample"]
+    pub fn mmEffectExt(sound: *mut mm_sound_effect, sample: *mut mm_ds_sample) -> mm_sfxhand;
+}
+extern "C" {
+    #[doc = " mmSetEffectsVolume( mm_word volume )"]
+    #[doc = ""]
+    #[doc = " Set master volume scale for effect playback."]
+    #[doc = ""]
+    #[doc = " volume : 0->1024 representing 0%->100% volume"]
+    pub fn mmSetEffectsVolume(volume: mm_word);
+}
+extern "C" {
+    #[doc = " mmEffectCancelAll()"]
+    #[doc = ""]
+    #[doc = " Stop all sound effects"]
+    pub fn mmEffectCancelAll();
+}
+extern "C" {
+    #[doc = " mmStreamOpen( mm_stream_info* info )"]
+    #[doc = ""]
+    #[doc = " Open audio stream."]
+    #[doc = ""]
+    #[doc = " stream : Configuration struct"]
+    pub fn mmStreamOpen(stream: *mut mm_stream);
+}
+extern "C" {
+    #[doc = " mmStreamUpdate()"]
+    #[doc = ""]
+    #[doc = " Fill audio stream with data. This needs to be called"]
+    #[doc = " in 'manual' mode. This is called automatically in 'auto' mode."]
+    pub fn mmStreamUpdate();
+}
+extern "C" {
+    #[doc = " mmStreamClose()"]
+    #[doc = ""]
+    #[doc = " Close audio stream."]
+    pub fn mmStreamClose();
+}
+extern "C" {
+    #[doc = " mmStreamGetPosition()"]
+    #[doc = ""]
+    #[doc = " Get number of samples elapsed since the stream was opened."]
+    #[doc = " The 32-bit value will wrap every 36 hours or so (at 32khz)"]
+    pub fn mmStreamGetPosition() -> mm_word;
+}
+extern "C" {
+    #[doc = " mmReverbEnable()"]
+    #[doc = ""]
+    #[doc = " Enable reverb system. (use before configuring!)"]
+    pub fn mmReverbEnable();
+}
+extern "C" {
+    #[doc = " mmReverbConfigure( mm_reverb_cfg* config )"]
+    #[doc = ""]
+    #[doc = " Configure reverb parameters."]
+    #[doc = " config : Configuration data."]
+    pub fn mmReverbConfigure(config: *mut mm_reverb_cfg);
+}
+extern "C" {
+    #[doc = " mmReverbStart( mm_reverbch channels )"]
+    #[doc = ""]
+    #[doc = " Start reverb output."]
+    pub fn mmReverbStart(channels: mm_reverbch);
+}
+extern "C" {
+    #[doc = " mmReverbStop( mm_reverch channels )"]
+    #[doc = ""]
+    #[doc = " Stop reverb output."]
+    pub fn mmReverbStop(channels: mm_reverbch);
+}
+extern "C" {
+    #[doc = " mmReverbDisable()"]
+    #[doc = ""]
+    #[doc = " Disable reverb system."]
+    pub fn mmReverbDisable();
 }

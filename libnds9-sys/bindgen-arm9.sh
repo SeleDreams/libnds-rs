@@ -2,7 +2,7 @@
 
 set -euxo pipefail
 
-bindgen "$DEVKITPRO/libnds/include/nds.h" \
+bindgen "wrapper.h" \
     --rust-target nightly \
     --use-core \
     --distrust-clang-mangling \
