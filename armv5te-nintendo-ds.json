@@ -11,6 +11,7 @@
   "target-pointer-width": "32",
   "max-atomic-width": 32,
   "disable-redzone": true,
+  "emit-debug-gdb-scripts": false,
   "panic-strategy" : "abort",
   "linker-is-gnu": true,
   "target-family": [

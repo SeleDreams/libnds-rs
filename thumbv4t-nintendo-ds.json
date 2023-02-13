@@ -10,8 +10,10 @@
   "relocation-model": "static",
   "target-pointer-width": "32",
   "max-atomic-width": 32,
-  "features" :"+crt-static,+soft-float,+strict-align,+atomics-32",
+  "features" :"+soft-float,+strict-align,+atomics-32",
   "panic-strategy" : "abort",
+  "emit-debug-gdb-scripts": false,
+  "function-sections": true,
   "target-family": [
       "unix"
     ],
@@ -20,9 +22,9 @@
       "gcc": [
         "-specs=ds_arm7.specs",
         "-g",
-        "-mthumb-interwork",
         "-march=armv4t",
-        "-mcpu=-mcpu=arm7tdmi",
+        "-mthumb-interwork",
+        "-mcpu=arm7tdmi",
         "-mthumb",
         "-mtune=arm7tdmi",
         "-fomit-frame-pointer",
