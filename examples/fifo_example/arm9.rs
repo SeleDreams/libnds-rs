@@ -15,6 +15,7 @@ fn main(_argc: isize, _argv: *const *const u8) -> isize
             let mut values : [u32;3] = [0;3];
             let mut ctr = 0;
             while ctr < 3 {
+                libc_println!("Hello World");
                 if fifoCheckValue32(FIFO_USER_01 as i32)
                 {
                     values[ctr] = fifoGetValue32(FIFO_USER_01 as i32);

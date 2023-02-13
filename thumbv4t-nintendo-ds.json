@@ -10,7 +10,7 @@
   "relocation-model": "static",
   "target-pointer-width": "32",
   "max-atomic-width": 32,
-  "features" :"+soft-float,+strict-align,+atomics-32",
+  "features" :"+crt-static,+soft-float,+strict-align,+atomics-32",
   "panic-strategy" : "abort",
   "target-family": [
       "unix"
