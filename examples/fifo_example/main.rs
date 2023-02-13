@@ -1,5 +1,6 @@
 #![no_std]
-#![feature(core_intrinsics, start,panic_info_message)]
+#![feature(start)]
+
 extern crate libc;
 extern crate libnds_sys;
 extern crate libc_print;

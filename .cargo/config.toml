@@ -1,14 +1,15 @@
 [profile.release]
-opt-level=3
+codegen-units = 1
+opt-level="z"
 debug-assertions=false
-strip=true
+strip = "debuginfo"
 lto = true
 overflow-checks=false
 
 [profile.dev]
+codegen-units = 1
 debug=2
-opt-level=3
+opt-level="z"
 debug-assertions=false
-strip=true
 lto = true
 overflow-checks=false
