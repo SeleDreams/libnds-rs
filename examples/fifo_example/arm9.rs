@@ -1,6 +1,8 @@
 use libc_print::libc_println;
 use libnds_sys::arm9_bindings::*;
 extern crate alloc;
+
+
 #[start]
 fn main(_argc: isize, _argv: *const *const u8) -> isize 
 {

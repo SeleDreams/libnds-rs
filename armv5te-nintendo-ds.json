@@ -12,6 +12,7 @@
   "max-atomic-width": 32,
   "disable-redzone": true,
   "emit-debug-gdb-scripts": false,
+  "features" : "+soft-float,+strict-align,+atomics-32",
   "panic-strategy" : "abort",
   "linker-is-gnu": true,
   "target-family": [

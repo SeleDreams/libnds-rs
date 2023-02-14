@@ -13,6 +13,7 @@
   "features" :"+soft-float,+strict-align,+atomics-32",
   "panic-strategy" : "abort",
   "emit-debug-gdb-scripts": false,
+  "disable-redzone" : true,
   "function-sections": true,
   "target-family": [
       "unix"
