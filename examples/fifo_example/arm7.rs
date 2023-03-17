@@ -1,7 +1,7 @@
 use core::{ptr::read_volatile, sync::atomic::AtomicBool, sync::atomic::Ordering};
 
 use libnds_sys::arm7_bindings::*;
-use libnds_sys::arm7_registers::*;
+use libnds_sys::bios_registers::*;
 
 unsafe extern "C" fn vblank_handler() {
     Wifi_Update();
