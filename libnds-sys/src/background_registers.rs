@@ -1,6 +1,3 @@
-//! 
-//! Registers for things that can be accessed with ARM9 code
-//!
 
 /// Background 0 Control register (main engine) [GBATEK Reference](http://problemkaputt.de/gbatek.htm#dsvideobgmodescontrol)
 pub const REG_BG0CNT: *const u16 = 0x4000008 as *const u16;
