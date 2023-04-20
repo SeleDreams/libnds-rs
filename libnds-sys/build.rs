@@ -2,21 +2,22 @@ use std::env;
 
 
 fn main() {
-    let target_os = env::var("CARGO_CFG_TARGET_OS").unwrap();
-    if target_os == "nintendo_ds_arm9" {
-        arm9_main();
-    }
-    else if target_os == "nintendo_ds_arm7"
-    {
-        arm7_main();
-    }
-    else {
-        println!("cargo:error=Target OS is not valid! please use the appropriate nintendo DS target json included with this library!")
+    let target_os = env::var("CARGO_CFG_TARGET_OS").unwrap_or_else(|_| {
+        println!("cargo:error=You must provide a target OS; either nintendo_ds_arm9 or nintendo_ds_arm7 is supported.");
+        "error".to_string()
+    });
+    match target_os.as_str() {
+        "nintendo_ds_arm9" => arm9_main(),
+        "nintendo_ds_arm7" => arm7_main(),
+        "error" => {},
+        _ => {
+            println!("cargo:error=Target OS is not valid! please use the appropriate nintendo DS target json included with this library!")
+        }
     }
 }
 
 fn arm7_main() {
-    let dkp_path = env::var("DEVKITPRO").unwrap();
+    let dkp_path = env::var("DEVKITPRO").unwrap_or(String::from("/opt/devkitpro"));
     let profile = env::var("PROFILE").unwrap();
 
     println!("cargo:rerun-if-changed=build.rs");
@@ -63,7 +64,7 @@ fn arm7_main() {
 }
 
 fn arm9_main() {
-    let dkp_path = env::var("DEVKITPRO").unwrap();
+    let dkp_path = env::var("DEVKITPRO").unwrap_or(String::from("/opt/devkitpro"));
     let profile = env::var("PROFILE").unwrap();
 
     println!("cargo:rerun-if-changed=build.rs");
