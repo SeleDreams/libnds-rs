@@ -3,7 +3,7 @@ A rust wrapper for the libnds library present in devkitpro
 
 This wrapper allows the generation of both arm9 and arm7 binaries to be able to use both CPUs of the nintendo ds together. The main program needs to use the arm9, the arm7 is the co-processor.
 
-If you wish to contribute, you can learn how to get everything set up [here]("GETTING_STARTED.md"). An example ported in rust of usage of both processors together has been added.
+If you wish to contribute, you can learn how to get everything set up [here](GETTING_SETUP.md). An example ported in rust of usage of both processors together has been added.
 
 This DS port was based on ctru-rs for the basic build scripts and project architecture https://github.com/rust3ds/ctru-rs
 
